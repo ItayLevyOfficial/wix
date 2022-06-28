@@ -1,0 +1,20 @@
+{
+  "name": "gallery-exam2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "jasmine": "3.9.0",
+    "jasmine-browser-runner": "0.8.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
