@@ -23,8 +23,11 @@ export class ImageFinder {
       }))
   };
 
-  async search(query, strategyId) {
-    const images = await ImageFinder.strategies[strategyId](query);
+  async search(query, strategyId, limit) {
+    let images = await ImageFinder.strategies[strategyId](query);
+    if (limit && images.length > limit) {
+      images = images.slice(0, limit);
+    }
     return { images, query };
   }
 }
