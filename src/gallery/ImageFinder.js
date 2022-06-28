@@ -25,9 +25,18 @@ export class ImageFinder {
 
   async search(query, strategyId, limit) {
     let images = await ImageFinder.strategies[strategyId](query);
+    images = uniqBy(images, JSON.stringify);
     if (limit && images.length > limit) {
       images = images.slice(0, limit);
     }
     return { images, query };
   }
+}
+
+function uniqBy(a, key) {
+  var seen = {};
+  return a.filter(function (item) {
+    var k = key(item);
+    return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+  });
 }
